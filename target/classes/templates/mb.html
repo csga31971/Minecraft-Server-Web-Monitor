@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/mdc.css">
+    <link rel="stylesheet" href="/css/mb.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Title</title>
+</head>
+<body class="mdc-typography">
+<div id="root">
+    <aside class="mdc-drawer">
+        <div class="mdc-drawer__header">
+            <h3 class="mdc-drawer__title">Menu</h3>
+        </div>
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list" data-mdc-auto-init="MDCList">
+                <a class="mdc-list-item mdc-list-item--activated menu" href="#" tabindex="-1" aria-selected="true"
+                   data-open="system">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bar_chart</i>
+                    System
+                </a>
+                <a class="mdc-list-item menu" href="#" tabindex="-1" data-open="mod">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">folder</i>
+                    Mod
+                </a>
+                <a class="mdc-list-item menu" href="#" tabindex="-1" data-open="upload">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">cloud_upload</i>
+                    Upload
+                </a>
+                <a class="mdc-list-item menu" href="#" tabindex="-1" data-open="console">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">input</i>
+                    Console
+                </a>
+                <hr class="mdc-list-divider">
+                <h6 class="mdc-list-group__subheader">Labels</h6>
+                <a class="mdc-list-item" href="#" tabindex="-1">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
+                    Nothing
+                </a>
+                <a class="mdc-list-item" href="#" tabindex="-1">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
+                    Nothing
+                </a>
+                <a class="mdc-list-item" href="#" tabindex="-1">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>
+                    Nothing
+                </a>
+            </nav>
+        </div>
+    </aside>
+    <div id="content">
+        <div id="system" class="content">
+            <header class="mdc-top-app-bar drawer-top-app-bar">
+                <div class="mdc-top-app-bar__row">
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                        <span class="mdc-top-app-bar__title">System</span>
+                    </section>
+                </div>
+            </header>
+            <div class="drawer-main-content">
+                <!--<div class="mdc-top-app-bar&#45;&#45;fixed-adjust">-->
+                    <div id="systemLayout" class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__inner">
+                            <div class="mdc-layout-grid__cell--span-6">
+                                <label class="mdc-tab__text-label">
+                                    server.properties
+                                </label>
+                            </div>
+                            <div class="mdc-layout-grid__cell--span-6">
+                                <label class="mdc-tab__text-label">
+                                    Status
+                                </label>
+                                <label id="OnlineCount" class="mdc-tab__text-label">
+                                    Online: 0
+                                </label>
+                            </div>
+                            <div class="mdc-layout-grid__cell--span-6">
+                                <textarea id="serverProperties" th:text="${serverProperties}"></textarea>
+                            </div>
+                            <div class="mdc-layout-grid__cell--span-6">
+                                <div id="status">
+
+                                </div>
+                            </div>
+                            <div class="mdc-layout-grid__cell--span-3">
+                                <button id="saveServerProperties" class="mdc-fab mdc-fab--extended mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple">
+                                    <i class="material-icons mdc-fab__icon">
+                                        save
+                                    </i>
+                                    <span class="mdc-fab__label">Save</span>>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <!--</div>-->
+            </div>
+        </div>
+        <div id="mod" class="content">
+            <header class="mdc-top-app-bar drawer-top-app-bar">
+                <div class="mdc-top-app-bar__row">
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                        <span class="mdc-top-app-bar__title">Mod</span>
+                    </section>
+                </div>
+            </header>
+            <div class="drawer-main-content">
+                <div class="mdc-top-app-bar--fixed-adjust">
+                    <div id="modList">
+                        <ul class="mdc-list" data-mdc-auto-init="MDCList">
+                            <li th:each="modFile: ${modFiles}" class="mdc-list-item mdc-ripple-upgraded" tabindex="-1">
+                                <span th:text="${modFile.getName()}"></span>
+                                <span class="mdc-list-item__meta material-icons" aria-hidden="true">cloud_download</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="upload" class="content">
+            <header class="mdc-top-app-bar drawer-top-app-bar">
+                <div class="mdc-top-app-bar__row">
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                        <span class="mdc-top-app-bar__title">Upload</span>
+                    </section>
+                </div>
+            </header>
+            <div class="drawer-main-content">
+                <div class="mdc-top-app-bar--fixed-adjust">
+                    <div id="uploadArea">
+                        <label for="uploadFileInput" id="uploadLabel">
+                            <button id="chooseButton" class="mdc-fab mdc-fab--extended mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple">
+                                <i class="material-icons mdc-fab__icon">
+                                    attachment
+                                </i>
+                                <span class="mdc-fab__label">Choose File</span>>
+                            </button>
+                        </label>
+                        <form id="fileForm" enctype="multipart/form-data" method="post">
+                            <input type="file" id="uploadFileInput" name="files" multiple accept=".jar" style="position:absolute;clip:rect(0 0 0 0);">
+                        </form>
+                        <br><br>
+                        <button id="uploadButton" class="mdc-fab mdc-fab--extended mdc-ripple-upgraded" data-mdc-auto-init="MDCRipple">
+                            <i class="material-icons mdc-fab__icon">
+                                cloud_upload
+                            </i>
+                            <span class="mdc-fab__label">Upload</span>>
+                        </button>
+                        <ul id="uploadFileNameList" class="mdc-list" data-mdc-auto-init="MDCList">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="console" class="content">
+            <header class="mdc-top-app-bar drawer-top-app-bar">
+                <div class="mdc-top-app-bar__row">
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                        <span class="mdc-top-app-bar__title">Console</span>
+                    </section>
+                </div>
+            </header>
+            <div class="drawer-main-content">
+                <div class="mdc-top-app-bar--fixed-adjust">
+                    <div id="consoleOutput">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="echartValues" style="display: none;">
+    <input type="text" id="freeMemory" th:value="${freeMemory}">
+    <input type="text" id="totalMemory" th:value="${totalMemory}">
+    <input type="text" id="cpuUsage" th:value="${cpuUsage}">
+</div>
+<script src="/js/jQuery.min.3.3.1.js"></script>
+<script src="/js/mdc.js"></script>
+<script src="/js/echarts.js"></script>
+<script src="/js/SockJS.js"></script>
+<script src="/js/stomp.min.js"></script>
+<script type="text/javascript">
+    mdc.autoInit();
+</script>
+<script type="text/javascript">
+    $('.menu').on('click', function () {
+        $('.content').hide();
+        $('#' + $(this).attr('data-open')).show();
+    });
+
+    $('#saveServerProperties').on('click', function(){
+        console.log($('#serverProperties').val())
+        $.ajax({
+            url: 'mb/saveSP',
+            type: 'POST',
+            data: {content: $('#serverProperties').val()},
+            success: function(result){
+                eval(result);
+            }
+        });
+    })
+
+    $('#modList .material-icons').on('click', function(){
+        let fileName = $(this).siblings("span").text();
+        $.get({
+            url: 'mb/download',
+            type: 'GET',
+            data: {fileName: fileName},
+            success: function(result){
+                let blob = new Blob([result]);
+                console.log(blob);
+                let link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = fileName;
+                link.click();
+            }
+        })
+    });
+
+    $('#uploadFileInput').on('change', function(e){
+        let files = $('#uploadFileInput')[0].files;
+        if(!files[0]){
+            $('#uploadFileNameList').empty();
+        }
+        $.each(files, function(i, e){
+            $('#uploadFileNameList').append('<li class="mdc-list-item mdc-ripple-upgraded" tabindex="-1">\n' +
+                '                                <span>' + e.name + '</span>\n' +
+                '                            </li>');
+        });
+    });
+
+    $('#chooseButton').on('click', function(){
+        $('#uploadFileInput').click();
+    });
+
+    $('#uploadButton').on('click', function(){
+        let files = $('#uploadFileInput')[0].files;
+        if(!files[0]){
+            alert('choose files !!!!!11111212111!');
+            return;
+        }
+        let formData = new FormData();
+        formData.append('files', files);
+        formData.append('upload_file', true);
+        console.log(files);
+        console.log(formData.get('files'));
+        $.ajax({
+            url: 'mb/upload',
+            type: 'POST',
+            data: new FormData($("#fileForm")[0]),
+            processData: false,
+            cache: false,
+            contentType: false,
+            success: function(result){
+                eval(result);
+            }
+        })
+    });
+
+    // $('#start').on('click', function () {
+    //     $.ajax({
+    //         url: '/mb/start',
+    //         data: null,
+    //         success: function(result){
+    //             alert('111');
+    //             $('#consoleOutput').text(result);
+    //         }
+    //     });
+    // });
+</script>
+<script type="text/javascript">
+    let statusChart = echarts.init($('#status')[0]);
+    let freeMemory = $('#freeMemory').val();
+    let totalMemory = $('#totalMemory').val();
+    let usedMemory = totalMemory - freeMemory;
+    let cpuUsage = $('#cpuUsage').val();
+    let statusOption = {
+        title: [{
+            text: '服务器状态'
+        },{
+            text: '内存',
+            left: 176,
+            top: 250
+        },{
+            text: 'CPU',
+            left: 572,
+            top : 250
+        }],
+        legend: {
+
+        },
+        tooltip: {
+            formatter: function(params){
+                if(params.name.indexOf('内存') > -1){
+                    return params.name + ': ' + params.value + 'MB (' + params.percent + '%)';
+                }else{
+                    return params.name + ': ' + params.value + '%';
+                }
+            }
+        },
+        series: [{
+            name: 'Memory',
+            type: 'pie',
+            label: {
+                show: false
+            },
+            radius: '60%',
+            center: ['25%', '50%'],
+            selectedMode: 'single',
+            data: [
+                {
+                    name: '可用内存',
+                    value: freeMemory
+                },
+                {
+                    name: '占用内存',
+                    value: usedMemory
+                }
+            ]
+        },{
+            name: 'CPU',
+            type: 'pie',
+            label: {
+                show: false
+            },
+            radius: '60%',
+            center: ['75%', '50%'],
+            selectedMode: 'single',
+            data: [
+                {
+                    name: '占用cpu',
+                    value: cpuUsage
+                },
+                {
+                    name: '空闲cpu',
+                    value: 1-cpuUsage
+                }
+            ]
+        }]
+    };
+    statusChart.setOption(statusOption);
+</script>
+<script type="text/javascript">
+    let socket = new SockJS('/ws/connect');
+    let stompClient = Stomp.over(socket);
+    stompClient.connect({}, function(frame){
+        console.log('websocket connected');
+        stompClient.subscribe('/ws/console/output', function(output){
+            $('#consoleOutput').html(output.body);
+        });
+        stompClient.subscribe('/ws/system', function(data){
+            let body = JSON.parse(data.body);
+            statusChart.setOption({
+                series: [{
+                    name: 'Memory',
+                    type: 'pie',
+                    label: {
+                        show: false
+                    },
+                    radius: '60%',
+                    center: ['25%', '50%'],
+                    selectedMode: 'single',
+                    data: [
+                        {
+                            name: '可用内存',
+                            value: body['freeMemory']
+                        },
+                        {
+                            name: '占用内存',
+                            value: body['totalMemory'] - body['freeMemory']
+                        }
+                    ]
+                },{
+                    name: 'CPU',
+                    type: 'pie',
+                    label: {
+                        show: false
+                    },
+                    radius: '60%',
+                    center: ['75%', '50%'],
+                    selectedMode: 'single',
+                    data: [
+                        {
+                            name: '占用cpu',
+                            value: body['cpuUsage']*100
+                        },
+                        {
+                            name: '空闲cpu',
+                            value: (1-body['cpuUsage'])*100
+                        }
+                    ]
+                }]
+            })
+        })
+    });
+</script>
+</body>
+</html>

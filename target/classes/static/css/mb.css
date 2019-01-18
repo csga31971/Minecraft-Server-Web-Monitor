@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+textarea{
+    resize: none;
+}
+
+#root{
+    height: 100vh;
+    display: flex;
+}
+
+#mod, #upload, #console{
+    display: none;
+}
+
+#content{
+    width: 100%;
+    position: relative;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+}
+
+.drawer-main-content{
+    width: 100%;
+    height: 100%;
+}
+
+#systemLayout{
+    height: 100%;
+    padding-top:80px;
+}
+
+#OnlineCount{
+    float: right;
+}
+
+#status{
+    width: 100%;
+    height: 300px;
+    border: 1px solid rgb(169, 169, 169);
+}
+
+#serverProperties{
+    width: 100%;
+    height: 100%;
+}
+
+#modList{
+    width:70%;
+    margin: 100px auto;
+}
+
+#modList .mdc-list{
+    width: 100%;
+}
+
+#modList .material-icons{
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#uploadArea{
+    width:70%;
+    margin: 100px auto;
+}
+
+#consoleOutput{
+    background: black;
+    color: white;
+    height: 600px;
+    width: 95%;
+    margin: 20px auto;
+    padding: 10px;
+    overflow-y: scroll;
+    white-space: pre-line;
+}
