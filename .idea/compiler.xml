@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-boot-web-thymeleaf" />
+        <module name="Minecraft-Server-Web-Monitor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-boot-web-thymeleaf" target="1.8" />
+      <module name="Minecraft-Server-Web-Monitor" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="spring-boot-web-thymeleaf" options="-parameters" />
+      <module name="Minecraft-Server-Web-Monitor" options="-parameters" />
     </option>
   </component>
 </project>

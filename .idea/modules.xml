@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-web-thymeleaf.iml" filepath="$PROJECT_DIR$/spring-boot-web-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Minecraft-Server-Web-Monitor.iml" filepath="$PROJECT_DIR$/Minecraft-Server-Web-Monitor.iml" />
     </modules>
   </component>
 </project>
