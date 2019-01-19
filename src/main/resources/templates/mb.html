@@ -346,11 +346,10 @@
     let socket = new SockJS('/ws/connect');
     let stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame){
-        console.log('websocket connected');
-        stompClient.subscribe('/ws/console/output', function(output){
+        stompClient.subscribe('/user/ws/console/output', function(output){
             $('#consoleOutput').html(output.body);
         });
-        stompClient.subscribe('/ws/system', function(data){
+        stompClient.subscribe('/user/ws/system', function(data){
             let body = JSON.parse(data.body);
             statusChart.setOption({
                 series: [{
