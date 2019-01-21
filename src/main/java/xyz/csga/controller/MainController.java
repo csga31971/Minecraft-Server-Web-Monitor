@@ -1,7 +1,7 @@
 
-package com.neo.controller;
+package xyz.csga.controller;
 
-import com.neo.config.SystemPropertiesConfig;
+import xyz.csga.config.SystemPropertiesConfig;
 import com.sun.management.OperatingSystemMXBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

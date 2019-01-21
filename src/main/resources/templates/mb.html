@@ -349,7 +349,7 @@
         stompClient.subscribe('/user/ws/console/output', function(output){
             $('#consoleOutput').html(output.body);
         });
-        stompClient.subscribe('/user/ws/system', function(data){
+        stompClient.subscribe('/ws/system', function(data){
             let body = JSON.parse(data.body);
             statusChart.setOption({
                 series: [{

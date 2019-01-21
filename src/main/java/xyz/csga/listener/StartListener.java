@@ -1,6 +1,6 @@
-package com.neo.listener;
+package xyz.csga.listener;
 
-import com.neo.config.SystemPropertiesConfig;
+import xyz.csga.config.SystemPropertiesConfig;
 import com.sun.management.OperatingSystemMXBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

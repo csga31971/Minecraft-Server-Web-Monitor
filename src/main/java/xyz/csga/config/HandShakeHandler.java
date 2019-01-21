@@ -1,4 +1,4 @@
-package com.neo.config;
+package xyz.csga.config;
 
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.web.socket.WebSocketHandler;

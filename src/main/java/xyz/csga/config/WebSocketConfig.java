@@ -1,4 +1,4 @@
-package com.neo.config;
+package xyz.csga.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

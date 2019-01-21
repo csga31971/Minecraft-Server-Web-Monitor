@@ -1,9 +1,8 @@
-package com.neo.config;
+package xyz.csga.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 @Configuration
 @PropertySource("classpath:system.properties")

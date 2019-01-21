@@ -16,7 +16,7 @@
  * 本示例参数于：
  * https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-ui
  */
-package com.neo;
+package xyz.csga;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
